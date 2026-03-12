@@ -32,6 +32,9 @@ Background: Validate distinct set
     Then column "signup_year" should not be null
     And column "signup_year" values should be between 1990 and 2027
 
+  Scenario: Source and destination row counts should match
+  Then row count in source table "raw_customers" should equal destination table "dim_customers"
+
 
 
 

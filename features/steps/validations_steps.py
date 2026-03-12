@@ -172,3 +172,16 @@ def step_fk_exists(context, fk_column, dim_table, dim_column):
     )
     _validate(context, exp)
 
+@then('row count in source table "{src_table}" should equal destination table "{dst_table}"')
+def step_compare_src_dst_rowcount_equal(context, src_table, dst_table):
+    conn = context.data_source.execution_engine.engine.raw_connection()
+    cur = conn.cursor()
+
+
+    src_cnt = cur.execute(f"select count(*) from {src_table}").fetchone()[0]
+    dst_cnt = cur.execute(f"select count(*) from {dst_table}").fetchone()[0]
+
+    if src_cnt != dst_cnt:
+        raise AssertionError(
+            f"Row count mismatch: source({src_table})={src_cnt}, destination({dst_table})={dst_cnt}"
+        )

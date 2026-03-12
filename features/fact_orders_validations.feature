@@ -31,3 +31,6 @@ Scenario: order_date should be populated and well-formed
 
 Scenario: customer_id should reference an existing customer (FK)
   Then column "customer_id" values should exist in table "dim_customers" column "customer_id"
+
+Scenario: Source and destination row counts should match
+  Then row count in source table "raw_orders" should equal destination table "fct_orders"
