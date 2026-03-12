@@ -8,7 +8,11 @@ from pathlib import Path
 
 @given('a sqlite datasource "{datasource_name}"')
 def step_add_sqlite_datasource(context, datasource_name):
-    connection_string = "sqlite:////Users/denrobin0/Documents/data_learning/interview_work/data-testing-framework/etl_test.sqlite3"
+    # connection_string = "sqlite:////Users/denrobin0/Documents/data_learning/interview_work/data-testing-framework/etl_test.sqlite3"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(BASE_DIR, '../../etl_test.sqlite3')
+    db_path = os.path.abspath(db_path)
+    connection_string = f"sqlite:///{db_path}"
      # Create GE context once if not present (in case you didn't use environment.py)
     if not hasattr(context, "ge_context"):
         context.ge_context = gx.get_context()
