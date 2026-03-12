@@ -8,7 +8,6 @@ from pathlib import Path
 
 @given('a sqlite datasource "{datasource_name}"')
 def step_add_sqlite_datasource(context, datasource_name):
-    # connection_string = "sqlite:////Users/denrobin0/Documents/data_learning/interview_work/data-testing-framework/etl_test.sqlite3"
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
     db_path = os.path.join(BASE_DIR, '../../etl_test.sqlite3')
     db_path = os.path.abspath(db_path)
@@ -33,7 +32,6 @@ def step_add_sqlite_datasource(context, datasource_name):
 def step_add_table_asset(context, asset_name, table_name):
     # Reuse existing asset if it already exists
     try:
-        # GE Fluent datasources usually expose .get_asset(name=...)
         context.data_asset = context.data_source.get_asset(asset_name)
     except Exception:
         # Create only if missing
@@ -74,7 +72,6 @@ def _validate(context, expectation):
     context.validation_results.append(result)
 
     if not result["success"]:
-        # Pretty-print GE failure info
         ge_details = json.dumps(result["result"], indent=2, default=str)
         raise AssertionError(
             f"Great Expectations validation failed:\n{ge_details}"
@@ -171,6 +168,7 @@ def step_fk_exists(context, fk_column, dim_table, dim_column):
         value_set=allowed
     )
     _validate(context, exp)
+    
 
 @then('row count in source table "{src_table}" should equal destination table "{dst_table}"')
 def step_compare_src_dst_rowcount_equal(context, src_table, dst_table):
