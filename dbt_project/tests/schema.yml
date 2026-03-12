@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension table containing master customer details"
+    columns:
+      - name: customer_id
+        description: "Surrogate key for customer"
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_name
+        description: "Full name of the customer"
+        tests:
+          - not_null
+
+      - name: email
+        description: "Customer email address"
+        tests:
+          - not_null
+          - unique
+
+      - name: signup_year
+        description: "Year when customer signed up"
+
+  - name: fct_orders
+    description: "Fact table containing customer orders"
+    columns:
+      - name: order_id
+        description: "Unique identifier for each order"
+        tests:
+          - not_null
+          - unique
+
+      - name: customer_id
+        description: "Foreign key referencing dim_customers"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+
+      - name: amount
+        description: "Order amount"
+        tests:
+          - not_null
+
+      - name: order_date
+        description: "Date when the order was placed"
+        tests:
+          - not_null

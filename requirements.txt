@@ -1,0 +1,9 @@
+behave
+sqlalchemy
+dbt-core==1.10.0
+dbt-sqlite==1.10.0
+pytest
+great-expectations>=1.0.0
+pandas>=1.5.0
+sqlite3
+allure-behave
