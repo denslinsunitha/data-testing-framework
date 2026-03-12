@@ -124,6 +124,10 @@ allure generate reports/allure-results -o reports/allure-report --clean
 # Open report in browser
 allure open reports/allure-report
 ```
+<img width="1728" height="805" alt="Screenshot 2026-03-12 at 19 13 25" src="https://github.com/user-attachments/assets/579abc22-4592-4747-99c8-73d672933a93" />
+
+<img width="1728" height="896" alt="Screenshot 2026-03-12 at 19 14 17" src="https://github.com/user-attachments/assets/e76a8dbe-467a-429b-848b-29cf0baf8cc7" />
+
 
 ## Key Components
 

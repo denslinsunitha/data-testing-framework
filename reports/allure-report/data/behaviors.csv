@@ -1,4 +1,0 @@
-"BROKEN","EPIC","FAILED","FEATURE","PASSED","SKIPPED","STORY","UNKNOWN"
-"0","","1","Validate ETL customer data with Great Expectations","5","0","","0"
-"0","","1","Validate fct orders data","6","0","","0"
-"0","","2","Validate dim customer data","4","0","","0"
