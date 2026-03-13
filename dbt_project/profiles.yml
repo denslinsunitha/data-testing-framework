@@ -7,5 +7,5 @@ my_project_profile:
       database: 'etl_test'
       schema: 'main'
       schemas_and_paths:
-        main: '/Users/denrobin0/Documents/data_learning/interview_work/new/data-testing-framework/etl_test.sqlite3'
-      schema_directory: '/Users/denrobin0/Documents/data_learning/interview_work/new/data-testing-framework'
+        main: '/absolute/path/to/etl_test.sqlite3'
+      schema_directory: '/absolute/path/to/your/project'

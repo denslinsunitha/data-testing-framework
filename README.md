@@ -88,6 +88,13 @@ This script will:
 
 Execute DBT transformations to create dimension and fact tables:
 
+Update the schema_directory and main path in the `project.yml` 
+
+main=/absolute/path/to/etl_test.sqlite3
+schema_directory=/absolute/path/to/your/project
+
+And then run the following command:
+
 ```bash
 dbt run --profile my_project_profile --target dev
 ```

@@ -59,9 +59,8 @@ def step_load_batch(context):
     context.batch = context.batch_definition.get_batch()
 
 
-# -----------------------------
+
 # Helper: validate expectation and store results
-# -----------------------------
 
 def _validate(context, expectation):
     result = context.batch.validate(expectation)
@@ -87,9 +86,9 @@ def _validate(context, expectation):
 
 
 
-# -----------------------------
+
 # Then steps: schema + volume
-# -----------------------------
+
 @then('the table columns should match ordered list "{columns_csv}"')
 def step_columns_match_order(context, columns_csv):
     columns = [c.strip() for c in columns_csv.split(",") if c.strip()]
@@ -103,9 +102,9 @@ def step_row_count_between(context, min_rows, max_rows):
     _validate(context, exp)
 
 
-# -----------------------------
+
 # Then steps: column null / unique / range / length / regex
-# -----------------------------
+
 @then('column "{column_name}" should not be null')
 def step_column_not_null(context, column_name):
     exp = gex.ExpectColumnValuesToNotBeNull(column=column_name)
@@ -168,7 +167,8 @@ def step_fk_exists(context, fk_column, dim_table, dim_column):
         value_set=allowed
     )
     _validate(context, exp)
-    
+
+# Recon count check between src and destination table
 
 @then('row count in source table "{src_table}" should equal destination table "{dst_table}"')
 def step_compare_src_dst_rowcount_equal(context, src_table, dst_table):
